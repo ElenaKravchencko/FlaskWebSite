@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #myCanvas {
+	border:1px solid black;
+}
+    </style>
+</head>
+<body>
+<h1>Here you can watch statistics:</h1>
+<p>Here are all the people who bought some products at our web site</p>
+<p>They bought such infoproducts as courses,presets and also such products as photoshoot and certificat for photoshoot</p>
+<p>How many buyings does your user usually make? only one? two? more then three? Watch!</p>
+<canvas id="myCanvas" width="600" height="600">
+Your browser does not support canvas.
+</canvas>
+<script>
+    var canvas, ctx;
+    var data = {{data}}
+	canvas = document.querySelector("#myCanvas");
+	ctx = canvas.getContext('2d');
+
+	var barcolor='orange';
+
+    ctx.save();
+
+	ctx.font = 'italic 20pt Calibri';
+	ctx.fillStyle=barcolor;
+	barwidth=40;
+	barspace=20;
+	barunit=20;
+
+	var posX = 0;
+	var posY = 0;
+	for (var i=0; i<data.length; i++){
+		barheight=data[i] * barunit;
+		posX = i*barspace + i*barwidth;
+		posY = 600 - barheight;
+		ctx.fillRect(posX, posY, barwidth, barheight);
+		ctx.save();
+		ctx.fillStyle='black';
+		ctx.fillText(data[i], posX, posY - 20);
+		ctx.restore();
+	}
+
+	ctx.restore();
+</script>
+</body>
+</html>

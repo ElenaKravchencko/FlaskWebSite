@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+{% if name != '' %}
+    <h1>Hello, {{name}}!</h1>
+    {% endif %}
+{% if mem != 0 %}
+    <p> you've spent {{ mem }} on your best memories! Photoshoots and certicicats</p>
+    <p> Get our special offer: 10% off on all photoshoots and certidicats! Check link in your email!</p>
+   {% endif %}
+{% if succ != 0 %}
+    <p> you've spent {{ succ }} on your success! Courses and presets. Hope they've helped you</p>
+    <p> Get your personal offer: 15% off on all courses and presets! Check link in your email!</p>
+   {% endif %}
+{% if (succ == 0) and (mem == 0) %}
+    <p> you are new to our shop</p>
+    <p> Get your special offer: 10% off on your first order!! Check link in your email!</p>
+   {% endif %}
+</body>
+</html>
